@@ -6,7 +6,8 @@
     <string name="action_refresh">Refresh</string>
     <string name="action_settings">Settings</string>
     <string name="action_share">Share</string>
-
+    <string name="nico_temp_url">https://nspf.github.io/XYZReader/data.json</string>
+    <string name="original_url">"https://dl.dropboxusercontent.com/u/231329/xyzreader_data/data.json"</string>
     <string name="up">Up</string>
 
 </resources>

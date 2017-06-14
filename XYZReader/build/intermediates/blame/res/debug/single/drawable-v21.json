@@ -1,0 +1,38 @@
+[
+    {
+        "merged": "/media/srv_twry/work/Projects/Android-Projects/MakeYourAppMaterial/XYZReader/build/intermediates/res/merged/debug/drawable-v21/notification_action_background.xml",
+        "source": "/home/srv_twry/.android/build-cache/201a16740f1d679ea1713120e752bc43b38eb2aa/output/res/drawable-v21/notification_action_background.xml"
+    },
+    {
+        "merged": "/media/srv_twry/work/Projects/Android-Projects/MakeYourAppMaterial/XYZReader/build/intermediates/res/merged/debug/drawable-v21/abc_edit_text_material.xml",
+        "source": "/home/srv_twry/.android/build-cache/201a16740f1d679ea1713120e752bc43b38eb2aa/output/res/drawable-v21/abc_edit_text_material.xml"
+    },
+    {
+        "merged": "/media/srv_twry/work/Projects/Android-Projects/MakeYourAppMaterial/XYZReader/build/intermediates/res/merged/debug/drawable-v21/design_bottom_navigation_item_background.xml",
+        "source": "/home/srv_twry/.android/build-cache/487364f5357e3e8ea21122dad59a34b739390bf0/output/res/drawable-v21/design_bottom_navigation_item_background.xml"
+    },
+    {
+        "merged": "/media/srv_twry/work/Projects/Android-Projects/MakeYourAppMaterial/XYZReader/build/intermediates/res/merged/debug/drawable-v21/avd_hide_password.xml",
+        "source": "/home/srv_twry/.android/build-cache/487364f5357e3e8ea21122dad59a34b739390bf0/output/res/drawable-v21/avd_hide_password.xml"
+    },
+    {
+        "merged": "/media/srv_twry/work/Projects/Android-Projects/MakeYourAppMaterial/XYZReader/build/intermediates/res/merged/debug/drawable-v21/abc_action_bar_item_background_material.xml",
+        "source": "/home/srv_twry/.android/build-cache/201a16740f1d679ea1713120e752bc43b38eb2aa/output/res/drawable-v21/abc_action_bar_item_background_material.xml"
+    },
+    {
+        "merged": "/media/srv_twry/work/Projects/Android-Projects/MakeYourAppMaterial/XYZReader/build/intermediates/res/merged/debug/drawable-v21/abc_btn_colored_material.xml",
+        "source": "/home/srv_twry/.android/build-cache/201a16740f1d679ea1713120e752bc43b38eb2aa/output/res/drawable-v21/abc_btn_colored_material.xml"
+    },
+    {
+        "merged": "/media/srv_twry/work/Projects/Android-Projects/MakeYourAppMaterial/XYZReader/build/intermediates/res/merged/debug/drawable-v21/white_selectable_item_background_circle.xml",
+        "source": "/media/srv_twry/work/Projects/Android-Projects/MakeYourAppMaterial/XYZReader/src/main/res/drawable-v21/white_selectable_item_background_circle.xml"
+    },
+    {
+        "merged": "/media/srv_twry/work/Projects/Android-Projects/MakeYourAppMaterial/XYZReader/build/intermediates/res/merged/debug/drawable-v21/design_password_eye.xml",
+        "source": "/home/srv_twry/.android/build-cache/487364f5357e3e8ea21122dad59a34b739390bf0/output/res/drawable-v21/design_password_eye.xml"
+    },
+    {
+        "merged": "/media/srv_twry/work/Projects/Android-Projects/MakeYourAppMaterial/XYZReader/build/intermediates/res/merged/debug/drawable-v21/avd_show_password.xml",
+        "source": "/home/srv_twry/.android/build-cache/487364f5357e3e8ea21122dad59a34b739390bf0/output/res/drawable-v21/avd_show_password.xml"
+    }
+]

@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "/media/srv_twry/work/Projects/Android-Projects/MakeYourAppMaterial/XYZReader/build/intermediates/res/merged/debug/drawable-xxhdpi/logo.png",
+        "source": "/media/srv_twry/work/Projects/Android-Projects/MakeYourAppMaterial/XYZReader/src/main/res/drawable-xxhdpi/logo.png"
+    },
+    {
+        "merged": "/media/srv_twry/work/Projects/Android-Projects/MakeYourAppMaterial/XYZReader/build/intermediates/res/merged/debug/drawable-xxhdpi/ic_share.png",
+        "source": "/media/srv_twry/work/Projects/Android-Projects/MakeYourAppMaterial/XYZReader/src/main/res/drawable-xxhdpi/ic_share.png"
+    },
+    {
+        "merged": "/media/srv_twry/work/Projects/Android-Projects/MakeYourAppMaterial/XYZReader/build/intermediates/res/merged/debug/drawable-xxhdpi/ic_arrow_back.png",
+        "source": "/media/srv_twry/work/Projects/Android-Projects/MakeYourAppMaterial/XYZReader/src/main/res/drawable-xxhdpi/ic_arrow_back.png"
+    }
+]
