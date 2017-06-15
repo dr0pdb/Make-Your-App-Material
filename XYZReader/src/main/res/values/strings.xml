@@ -9,5 +9,5 @@
     <string name="nico_temp_url">https://nspf.github.io/XYZReader/data.json</string>
     <string name="original_url">"https://dl.dropboxusercontent.com/u/231329/xyzreader_data/data.json"</string>
     <string name="up">Up</string>
-
+    <string name="transition_photo"> Shared photo transition</string>
 </resources>
