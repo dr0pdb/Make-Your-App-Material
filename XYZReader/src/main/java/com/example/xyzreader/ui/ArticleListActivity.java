@@ -43,6 +43,9 @@ public class ArticleListActivity extends AppCompatActivity implements
     private SwipeRefreshLayout mSwipeRefreshLayout;
     private RecyclerView mRecyclerView;
     private static final String SHARED_ELEMENT = "shared element transition";
+    public static final String STARTING_ITEM_POSITION = "starting item position";
+    public static final String CURRENT_ITEM_POSITION = "current item position";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -135,15 +138,14 @@ public class ArticleListActivity extends AppCompatActivity implements
                 @Override
                 public void onClick(View view) {
                     Intent intent = new Intent(Intent.ACTION_VIEW, ItemsContract.Items.buildItemUri(getItemId(vh.getAdapterPosition())));
-
+                    //giving the starting adapter position to the details activity
+                    intent.putExtra(STARTING_ITEM_POSITION,vh.getAdapterPosition());
                     Bundle mBundle = null;
                     if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                         // only for lollipop and newer versions
                         intent.putExtra(SHARED_ELEMENT,ViewCompat.getTransitionName(vh.thumbnailView));
                         mBundle = ActivityOptions.makeSceneTransitionAnimation(ArticleListActivity.this,vh.thumbnailView,ViewCompat.getTransitionName(vh.thumbnailView)).toBundle();
                     }
-
-
                     startActivity(intent,mBundle);
 
                 }
