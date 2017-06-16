@@ -20,6 +20,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.support.v7.widget.Toolbar;
 import android.text.format.DateUtils;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.MenuItem;
 import android.view.View;
@@ -45,6 +46,7 @@ import java.util.Map;
 public class ArticleListActivity extends AppCompatActivity implements
         LoaderManager.LoaderCallbacks<Cursor> {
 
+    private static final String TAG = ArticleListActivity.class.getSimpleName();
     private Toolbar mToolbar;
     private SwipeRefreshLayout mSwipeRefreshLayout;
     private RecyclerView mRecyclerView;
@@ -54,7 +56,6 @@ public class ArticleListActivity extends AppCompatActivity implements
 
     private Bundle mTmpReenterState;
     public boolean mIsRefreshing;
-    public static boolean mIsDetailsActivityStarted;
 
     @SuppressWarnings("NewApi")
     private final SharedElementCallback mCallback = new SharedElementCallback() {
@@ -67,8 +68,9 @@ public class ArticleListActivity extends AppCompatActivity implements
                     // If startingPosition != currentPosition the user must have swiped to a
                     // different page in the DetailsActivity. We must update the shared element
                     // so that the correct one falls into place.
-                    String newTransitionName = getString(R.string.transition_photo) + currentPosition;
-                    View newSharedElement = mRecyclerView.findViewWithTag(newTransitionName);
+                    String newTransitionName = getString(R.string.transition_photo ) + currentPosition;
+                    Log.v(TAG,newTransitionName);
+                    View newSharedElement = mRecyclerView.getChildAt(currentPosition).findViewById(R.id.thumbnail);
                     if (newSharedElement != null) {
                         names.clear();
                         names.add(newTransitionName);
@@ -100,6 +102,9 @@ public class ArticleListActivity extends AppCompatActivity implements
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_article_list);
 
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            setExitSharedElementCallback(mCallback);
+        }
 
         mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_refresh_layout);
 

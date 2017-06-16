@@ -91,6 +91,7 @@ public class ArticleDetailActivity extends AppCompatActivity
         //Postponing the transition
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
             postponeEnterTransition();
+            setEnterSharedElementCallback(mCallback);
         }
         mStartingPosition = getIntent().getIntExtra(ArticleListActivity.STARTING_ITEM_POSITION, 0);
 
@@ -192,6 +193,7 @@ public class ArticleDetailActivity extends AppCompatActivity
             while (!mCursor.isAfterLast()) {
                 if (mCursor.getLong(ArticleLoader.Query._ID) == mStartId) {
                     final int position = mCursor.getPosition();
+                    mPagerAdapter.notifyDataSetChanged();
                     mPager.setCurrentItem(position, false);
                     break;
                 }

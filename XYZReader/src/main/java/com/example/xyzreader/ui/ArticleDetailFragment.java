@@ -271,13 +271,12 @@ public class ArticleDetailFragment extends Fragment implements
                     });
 
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
-                if (mCurrentPosition == mStartingPosition){
-                    //setting the shared content transition on photoview
-                    ViewCompat.setTransitionName(mPhotoView,getResources().getString(R.string.transition_photo)+ mStartingPosition);
 
-                    //starting the postponed transition.
-                    scheduleStartPostponedTransition(mPhotoView);
-                }
+                //setting the shared content transition on photoview
+                ViewCompat.setTransitionName(mPhotoView,getResources().getString(R.string.transition_photo)+ mCurrentPosition);
+
+                //starting the postponed transition.
+                scheduleStartPostponedTransition(mPhotoView);
             }
 
         } else {
