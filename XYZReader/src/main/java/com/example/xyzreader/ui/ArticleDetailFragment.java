@@ -6,10 +6,13 @@ import android.content.Intent;
 import android.content.Loader;
 import android.database.Cursor;
 import android.graphics.Bitmap;
+import android.graphics.Rect;
 import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.ShareCompat;
@@ -266,11 +269,17 @@ public class ArticleDetailFragment extends Fragment implements
 
                         }
                     });
-            //setting the shared content transition on photoview
-            ViewCompat.setTransitionName(mPhotoView,mCursor.getString(ArticleLoader.Query.TITLE));
 
-            //starting the postponed transition.
-            scheduleStartPostponedTransition(mPhotoView);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
+                if (mCurrentPosition == mStartingPosition){
+                    //setting the shared content transition on photoview
+                    ViewCompat.setTransitionName(mPhotoView,getResources().getString(R.string.transition_photo)+ mStartingPosition);
+
+                    //starting the postponed transition.
+                    scheduleStartPostponedTransition(mPhotoView);
+                }
+            }
+
         } else {
             mRootView.setVisibility(View.GONE);
             titleView.setText("N/A");
@@ -346,4 +355,26 @@ public class ArticleDetailFragment extends Fragment implements
         return super.onOptionsItemSelected(item);
     }
     */
+
+    /**
+     * Returns the shared element that should be transitioned back to the previous Activity,
+     * or null if the view is not visible on the screen.
+     */
+    @Nullable
+    ImageView getAlbumImage() {
+        if (isViewInBounds(getActivity().getWindow().getDecorView(), mPhotoView)) {
+            return mPhotoView;
+        }
+        return null;
+    }
+
+    /**
+     * Returns true if {@param view} is contained within {@param container}'s bounds.
+     */
+    private static boolean isViewInBounds(@NonNull View container, @NonNull View view) {
+        Rect containerBounds = new Rect();
+        container.getHitRect(containerBounds);
+        return view.getLocalVisibleRect(containerBounds);
+    }
+
 }
