@@ -6,15 +6,15 @@ import android.content.Intent;
 import android.content.Loader;
 import android.database.Cursor;
 import android.graphics.Bitmap;
-import android.graphics.Color;
-import android.graphics.Rect;
 import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.ShareCompat;
 import android.support.v4.view.ViewCompat;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.graphics.Palette;
 import android.support.v7.widget.Toolbar;
@@ -64,6 +64,7 @@ public class ArticleDetailFragment extends Fragment implements
     private int mCurrentPosition;
     private int mStartingPosition;
     private Toolbar detailToolbar;
+    private CollapsingToolbarLayout mCollapsingToolbar;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
@@ -117,9 +118,8 @@ public class ArticleDetailFragment extends Fragment implements
             Bundle savedInstanceState) {
         mRootView = inflater.inflate(R.layout.fragment_article_detail, container, false);
         /*
-
         mDrawInsetsFrameLayout = (DrawInsetsFrameLayout)
-                mRootView.findViewById(R.id.draw_insets_frame_layout);
+        mRootView.findViewById(R.id.draw_insets_frame_layout);
         mDrawInsetsFrameLayout.setOnInsetsCallback(new DrawInsetsFrameLayout.OnInsetsCallback() {
             @Override
             public void onInsetsChanged(Rect insets) {
@@ -146,9 +146,35 @@ public class ArticleDetailFragment extends Fragment implements
         mStatusBarColorDrawable = new ColorDrawable(0);
 
         detailToolbar = (Toolbar) mRootView.findViewById(R.id.detail_toolbar);
-        ((AppCompatActivity) getActivity()).setSupportActionBar(detailToolbar);
-        ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayShowTitleEnabled(false);
+        getActivityCast().setSupportActionBar(detailToolbar);
+
+        detailToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Respond to the action bar's Up/Home button
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    getActivity().finishAfterTransition();
+                } else {
+                    getActivity().finish();
+                }
+            }
+        });
+
+        mCollapsingToolbar= (CollapsingToolbarLayout) mRootView.findViewById(R.id.toolbar);
+        mCollapsingToolbar.setTitle(null);
+
+        ActionBar actionBar = getActivityCast().getSupportActionBar();
+        if (actionBar!=null) {
+            actionBar.setHomeButtonEnabled(true);
+            actionBar.setDisplayShowHomeEnabled(true);
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
+
+
+        // ((AppCompatActivity) getActivity()).setSupportActionBar(detailToolbar);
+        //((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayShowTitleEnabled(false);
+
 
         //setting up the fab
         mRootView.findViewById(R.id.share_fab).setOnClickListener(new View.OnClickListener() {
@@ -181,7 +207,7 @@ public class ArticleDetailFragment extends Fragment implements
         //mDrawInsetsFrameLayout.setInsetBackground(mStatusBarColorDrawable);
     }
     */
-    static float progress(float v, float min, float max) {
+  /*  static float progress(float v, float min, float max) {
         return constrain((v - min) / (max - min), 0, 1);
     }
 
@@ -194,7 +220,7 @@ public class ArticleDetailFragment extends Fragment implements
             return val;
         }
     }
-
+  */
     private void bindViews() {
         if (mRootView == null) {
             return;
@@ -305,16 +331,19 @@ public class ArticleDetailFragment extends Fragment implements
         });
     }
 
-    @Override
+   /* @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                     getActivity().finishAfterTransition();
                     return true;
+                }else{
+                    getActivity().finish();
+                    return true;
                 }
         }
         return super.onOptionsItemSelected(item);
     }
-
+    */
 }
